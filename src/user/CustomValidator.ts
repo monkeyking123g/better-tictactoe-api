@@ -1,6 +1,7 @@
 import { ValidatorConstraint, ValidatorConstraintInterface, ValidationArguments } from 'class-validator';
 import * as dayjs from 'dayjs'
 import "dayjs/locale/it";
+
 @ValidatorConstraint({ name: 'customText', async: false })
 export class CustomMarried implements ValidatorConstraintInterface {
   validate(married : any, args: ValidationArguments) {

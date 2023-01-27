@@ -1,7 +1,6 @@
 import { Controller, Post, Body } from '@nestjs/common';
-import { InfoService, UserService } from './info.service';
+import { InfoService } from './info.service';
 import { UpdateInfoRequest } from './interfaces';
-import { UpdateUserRequest } from './interfaces/user';
 import { BaseResponse } from '../interfaces';
 
 @Controller('info')
@@ -14,12 +13,3 @@ export class InfoController {
   }
 }
 
-@Controller('user')
-export class UserController {
-  constructor(private readonly userServices: UserService) {}
-
-  @Post('/validate')
-  getConfig(@Body() bodyRequest: UpdateUserRequest): Promise<BaseResponse> {
-    return this.userServices.validateInfo(bodyRequest);
-  }
-}

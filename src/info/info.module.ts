@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { InfoController, UserController } from './info.controller';
-import { InfoService, UserService } from './info.service';
+import { InfoController  } from './info.controller';
+import { InfoService } from './info.service';
 
 @Module({
   imports: [],
@@ -8,10 +8,3 @@ import { InfoService, UserService } from './info.service';
   providers: [InfoService],
 })
 export class InfoModule {}
-
-@Module({
-  imports: [],
-  controllers: [UserController],
-  providers: [UserService],
-})
-export class UserModule {}

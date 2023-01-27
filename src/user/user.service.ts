@@ -1,16 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { plainToClass } from 'class-transformer';
 import { validate } from 'class-validator';
-import { UpdateInfoRequest as UpdateInfoRequestInterface } from './interfaces';
+
+import { UpdateUserRequest as UpdateUserRequestInterface } from './interfaces';
 import { BaseResponse } from '../interfaces';
-import { UpdateInfoRequest } from './models';
+import { UpdateUserRequest } from './models';
+
 
 @Injectable()
-export class InfoService {
-  async validateInfo(
-    rawData: UpdateInfoRequestInterface,
+export class UserService {
+  async validateUser(
+    rawData: UpdateUserRequestInterface,
   ): Promise<BaseResponse> {
-    const data = plainToClass(UpdateInfoRequest, rawData);
+    const data = plainToClass(UpdateUserRequest, rawData);
     const validationErrors = await validate(data);
     if (validationErrors.length > 0) {
       return {
@@ -24,5 +26,4 @@ export class InfoService {
     };
   }
 }
-
 
